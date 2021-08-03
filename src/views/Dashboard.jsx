@@ -22,6 +22,7 @@ const Button = styled.button`
 
 const StyledLink = styled(NavLink)`
   align-items: center;
+  border: 2px solid #000;
   color: ${({ theme }) => theme.colors.grey};
   display: flex;
   align-items: center;
