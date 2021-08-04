@@ -157,10 +157,32 @@ button {
   outline: 0;
   padding: 0;
 }
+
 input {
+  background: none;
+  border: 0;
+  cursor: pointer;
+  font: inherit;
   outline: 0;
-  -webkit-appearance: none;
+  padding: 0;
 }
+
+textarea {
+  background: none;
+  border: 0;
+  cursor: pointer;
+  font: inherit;
+  outline: 0;
+  padding: 0;
+  resize: none;
+}
+
 #root {
   height: 100%;
+}
+
+a {
+  color: inherit;
+  outline: 0;
+  text-decoration: none;
 }
