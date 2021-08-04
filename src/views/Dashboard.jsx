@@ -6,27 +6,27 @@ const Wrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-`;
-
-const ButtonHolder = styled.nav`
-  width: 100px;
-  height: 50px;
+  flex-direction: column;
+  grid-gap: 12px;
+  height: 100%;
 `;
 
 const Button = styled.button`
   background-color: transparent;
   padding: 8px;
-  width: 100px;
+  width: 160px;
   height: 48px;
 `;
 
 const StyledLink = styled(NavLink)`
   align-items: center;
-  border: 2px solid #000;
-  color: ${({ theme }) => theme.colors.grey};
+  border-radius: 8px;
+  box-shadow: 0px 0px 2px 0px ${({ theme }) => theme.colors.darkPurple};
+  color: ${({ theme }) => theme.colors.icons};
   display: flex;
   align-items: center;
   justify-content: center;
+  font-size: ${({ theme }) => theme.colors.xl};
   text-decoration: none;
   height: 40px;
 `;
@@ -34,14 +34,12 @@ const StyledLink = styled(NavLink)`
 const Dashboard = () => {
   return (
     <Wrapper>
-      <ButtonHolder>
-        <Button>
-          <StyledLink to="/singleplayer">singleplayer</StyledLink>
-        </Button>
-        <Button>
-          <StyledLink to="/multiplayer">multiplayer</StyledLink>
-        </Button>
-      </ButtonHolder>
+      <Button>
+        <StyledLink to="/singleplayer">Singleplayer</StyledLink>
+      </Button>
+      <Button>
+        <StyledLink to="/multiplayer">Multiplayer</StyledLink>
+      </Button>
     </Wrapper>
   );
 };

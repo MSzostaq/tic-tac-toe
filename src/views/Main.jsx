@@ -12,11 +12,6 @@ import MultiPlayer from "views/MultiPlayer";
 import SinglePlayer from "views/SinglePlayer";
 
 const Wrapper = styled.div`
-  position: relative;
-  height: 100%;
-`;
-
-const View = styled.div`
   height: 100%;
 `;
 
@@ -25,20 +20,18 @@ const Main = () => {
     <Router>
       <ThemeProvider theme={theme}>
         <Wrapper>
-          <View>
-            <Switch>
-              <Route exact path="/">
-                <Dashboard />
-              </Route>
-              <Route path="/singleplayer">
-                <SinglePlayer />
-              </Route>
-              <Route path="/multiplayer">
-                <MultiPlayer />
-              </Route>
-              <Redirect to="/" />
-            </Switch>
-          </View>
+          <Switch>
+            <Route exact path="/">
+              <Dashboard />
+            </Route>
+            <Route path="/singleplayer">
+              <SinglePlayer />
+            </Route>
+            <Route path="/multiplayer">
+              <MultiPlayer />
+            </Route>
+            <Redirect to="/" />
+          </Switch>
         </Wrapper>
       </ThemeProvider>
     </Router>
