@@ -1,16 +1,28 @@
 import React from "react";
 import styled from "styled-components";
+import ModalsProvider from "components/ModalsProvider";
+import Modals from "components/Modals";
+import Notifications from "components/Notifications";
 import Routes from "components/Routes";
 
 const StyledApp = styled.div`
   height: 100%;
-  width: 100%;
+`;
+
+const AppNotifications = styled(Notifications)`
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
 `;
 
 const App = () => {
   return (
     <StyledApp>
-      <Routes />
+      <ModalsProvider>
+        <Routes />
+        <Modals />
+        <AppNotifications />
+      </ModalsProvider>
     </StyledApp>
   );
 };
