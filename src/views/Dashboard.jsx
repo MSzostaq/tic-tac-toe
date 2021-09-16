@@ -35,7 +35,10 @@ const Dashboard = () => {
   return (
     <Wrapper>
       <Button>
-        <StyledLink to="/singleplayer">Singleplayer</StyledLink>
+        <StyledLink to="/local">Local</StyledLink>
+      </Button>
+      <Button>
+        <StyledLink to="/singleplayer">Single Player</StyledLink>
       </Button>
       <Button>
         <StyledLink to="/multiplayer">Multiplayer</StyledLink>

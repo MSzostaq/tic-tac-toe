@@ -26,7 +26,7 @@ const BackIcon = styled(Icon)`
   height: 24px;
 `;
 
-const SinglePlayer = () => {
+const Local = () => {
   return (
     <Wrapper>
       <BackButton to="/">
@@ -36,4 +36,4 @@ const SinglePlayer = () => {
   );
 };
 
-export default SinglePlayer;
+export default Local;
