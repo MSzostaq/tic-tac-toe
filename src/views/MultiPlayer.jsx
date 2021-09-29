@@ -4,6 +4,9 @@ import styled from "styled-components";
 import Icon from "components/Icon";
 
 const Wrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
   height: 100%;
   width: 100%;
 `;
@@ -26,12 +29,20 @@ const BackIcon = styled(Icon)`
   height: 24px;
 `;
 
+const GameWrapper = styled.div`
+  border-radius: 8px;
+  box-shadow: 0px 0px 2px 0px ${({ theme }) => theme.colors.darkPurple};
+  width: 500px;
+  height: 500px;
+`;
+
 const MultiPlayer = () => {
   return (
     <Wrapper>
       <BackButton to="/">
         <BackIcon icon="caretDown" />
       </BackButton>
+      <GameWrapper></GameWrapper>
     </Wrapper>
   );
 };
