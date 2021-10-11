@@ -36,7 +36,7 @@ const GameWrapper = styled.div`
   height: 500px;
 `;
 
-const Local = () => {
+const MultiplayerLocal = () => {
   return (
     <Wrapper>
       <BackButton to="/">
@@ -47,4 +47,4 @@ const Local = () => {
   );
 };
 
-export default Local;
+export default MultiplayerLocal;

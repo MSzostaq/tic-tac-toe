@@ -8,8 +8,9 @@ import {
 import styled, { ThemeProvider } from "styled-components";
 import { theme } from "constants/theme";
 import Dashboard from "views/Dashboard";
-import MultiPlayer from "views/MultiPlayer";
-import Local from "views/Local";
+import MultiplayerLocal from "views/MultiplayerLocal";
+import MultiplayerOnline from "views/MultiplayerOnline";
+import SinglePlayer from "views/SinglePlayer";
 
 const Wrapper = styled.div`
   height: 100%;
@@ -24,14 +25,14 @@ const Main = () => {
             <Route exact path="/">
               <Dashboard />
             </Route>
-            <Route path="/local">
-              <Local />
-            </Route>
             <Route path="/singleplayer">
-              <Local />
+              <SinglePlayer />
             </Route>
-            <Route path="/multiplayer">
-              <MultiPlayer />
+            <Route path="/multiplayer-local">
+              <MultiplayerLocal />
+            </Route>
+            <Route path="/multiplayer-online">
+              <MultiplayerOnline />
             </Route>
             <Redirect to="/" />
           </Switch>

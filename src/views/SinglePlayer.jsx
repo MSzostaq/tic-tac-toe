@@ -36,7 +36,7 @@ const GameWrapper = styled.div`
   height: 500px;
 `;
 
-const MultiPlayer = () => {
+const SinglePlayer = () => {
   return (
     <Wrapper>
       <BackButton to="/">
@@ -47,4 +47,4 @@ const MultiPlayer = () => {
   );
 };
 
-export default MultiPlayer;
+export default SinglePlayer;

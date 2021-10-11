@@ -14,7 +14,7 @@ const Wrapper = styled.div`
 const Button = styled.button`
   background-color: transparent;
   padding: 8px;
-  width: 160px;
+  width: 180px;
   height: 48px;
 `;
 
@@ -35,13 +35,13 @@ const Dashboard = () => {
   return (
     <Wrapper>
       <Button>
-        <StyledLink to="/local">Local</StyledLink>
-      </Button>
-      <Button>
         <StyledLink to="/singleplayer">Single Player</StyledLink>
       </Button>
       <Button>
-        <StyledLink to="/multiplayer">Multiplayer</StyledLink>
+        <StyledLink to="/multiplayer-local">Multiplayer (local)</StyledLink>
+      </Button>
+      <Button>
+        <StyledLink to="/multiplayer-online">Multiplayer (online)</StyledLink>
       </Button>
     </Wrapper>
   );
