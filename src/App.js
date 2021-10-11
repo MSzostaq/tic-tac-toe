@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import styled from "styled-components";
 import ModalsProvider from "components/ModalsProvider";
 import Modals from "components/Modals";
@@ -16,10 +16,6 @@ const AppNotifications = styled(Notifications)`
 `;
 
 const App = () => {
-  useEffect(() => {
-    document.title = "Tic-Tac-Toe";
-  });
-
   return (
     <StyledApp>
       <ModalsProvider>
