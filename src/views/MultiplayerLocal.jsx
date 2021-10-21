@@ -31,12 +31,40 @@ const BackIcon = styled(Icon)`
   height: 24px;
 `;
 
+const GameWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+`;
+
+const GameTitle = styled.p`
+  color: ${({ theme }) => theme.colors.darkGrey};
+  font-family: sans-serif;
+  font-size: ${({ theme }) => theme.fontSize.xl};
+  margin: 12px;
+`;
+
+const GameInfo = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-left: 24px;
+`;
+
+const GameHistory = styled.p`
+  color: ${({ theme }) => theme.colors.darkGrey};
+  font-family: sans-serif;
+  font-size: ${({ theme }) => theme.fontSize.l};
+`;
+
 const MultiplayerLocal = () => {
   const [history, setHistory] = useState([Array(9).fill(null)]);
   const [stepNumber, setStepNumber] = useState(0);
   const [xIsNext, setXIsNext] = useState(true);
   const winner = calculateWinner(history[stepNumber]);
-  const xo = xIsNext ? "X" : "O";
+  const xO = xIsNext ? "X" : "O";
 
   const handleClick = (index) => {
     const historyPoint = history.slice(0, stepNumber + 1);
@@ -45,7 +73,7 @@ const MultiplayerLocal = () => {
     // return if won or occupied
     if (winner || squares[index]) return;
     // select square
-    squares[index] = xo;
+    squares[index] = xO;
     setHistory([...historyPoint, squares]);
     setStepNumber(historyPoint.length);
     setXIsNext(!xIsNext);
@@ -58,7 +86,7 @@ const MultiplayerLocal = () => {
 
   const renderMoves = () => {
     history.map((_step, move) => {
-      const destination = move ? `Go to move #${move}` : "Go to start!";
+      const destination = move ? `Go to move ${move}` : "Go to start!";
       return (
         <li key={move}>
           <button onClick={() => jumpTo(move)}>{destination}</button>
@@ -72,12 +100,16 @@ const MultiplayerLocal = () => {
       <BackButton to="/">
         <BackIcon icon="caretDown" />
       </BackButton>
-      <Board squares={history[stepNumber]} onClick={handleClick} />
-      <div>
-        <h1>History</h1>
+      <GameWrapper>
+        <GameTitle>
+          {winner ? "Player " + winner + " won!" : "Next player " + xO}
+        </GameTitle>
+        <Board squares={history[stepNumber]} onClick={handleClick} />
+      </GameWrapper>
+      <GameInfo>
+        <GameHistory>History</GameHistory>
         {renderMoves()}
-        <h1>{winner ? "Winner: " + winner : "Next player: " + xo}</h1>
-      </div>
+      </GameInfo>
     </Wrapper>
   );
 };
