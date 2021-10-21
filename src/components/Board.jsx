@@ -10,8 +10,13 @@ const Wrapper = styled.div`
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr;
   gap: 0.3rem;
-  width: 500px;
-  height: 500px;
+  width: 360px;
+  height: 360px;
+
+  @media (min-width: 800px) {
+    width: 420px;
+    height: 420px;
+  }
 `;
 
 const Board = ({ squares, onClick }) => {
