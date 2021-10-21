@@ -4,29 +4,18 @@ import styled from "styled-components";
 const Squares = styled.div`
   background-color: ${({ theme }) => theme.colors.lightGrey};
   border: none;
-  font-size: ${({ theme }) => theme.fontSize.l};
+  color: ${({ theme }) => theme.colors.darkGrey};
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: sans-serif;
+  font-size: ${({ theme }) => theme.fontSize.xxl};
   cursor: pointer;
   outline: none;
 `;
 
-const X = styled.p`
-  color: ${({ theme }) => theme.colors.black};
-`;
-
-const O = styled.p`
-  color: ${({ theme }) => theme.colors.black};
-`;
-
 const Square = ({ value, onClick }) => {
-  const style = value ? `squares ${value}` : `squares`;
-
-  return (
-    <>
-      <Squares className={style} onClick={onClick}>
-        {value}
-      </Squares>
-    </>
-  );
+  return <Squares onClick={onClick}>{value}</Squares>;
 };
 
 export default Square;
