@@ -66,14 +66,14 @@ const MultiplayerLocal = () => {
   const winner = calculateWinner(history[stepNumber]);
   const xO = xIsNext ? "X" : "O";
 
-  const handleClick = (index) => {
+  const handleClick = (i) => {
     const historyPoint = history.slice(0, stepNumber + 1);
     const current = historyPoint[stepNumber];
     const squares = [...current];
     // return if won or occupied
-    if (winner || squares[index]) return;
+    if (winner || squares[i]) return;
     // select square
-    squares[index] = xO;
+    squares[i] = xO;
     setHistory([...historyPoint, squares]);
     setStepNumber(historyPoint.length);
     setXIsNext(!xIsNext);
@@ -85,8 +85,8 @@ const MultiplayerLocal = () => {
   };
 
   const renderMoves = () => {
-    history.map((_step, move) => {
-      const destination = move ? `Go to move ${move}` : "Go to start!";
+    history.map((step, move) => {
+      const destination = move ? `Go to move #${move}` : `Go to start!`;
       return (
         <li key={move}>
           <button onClick={() => jumpTo(move)}>{destination}</button>
