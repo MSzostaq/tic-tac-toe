@@ -30,6 +30,7 @@ const BackIcon = styled(Icon)`
 `;
 
 const GameWrapper = styled.div`
+  background-color: ${({ theme }) => theme.colors.lightGrey};
   border-radius: 8px;
   box-shadow: 0px 0px 2px 0px ${({ theme }) => theme.colors.darkPurple};
   width: 500px;
@@ -42,7 +43,7 @@ const MultiplayerOnline = () => {
       <BackButton to="/">
         <BackIcon icon="caretDown" />
       </BackButton>
-      <GameWrapper></GameWrapper>
+      <GameWrapper />
     </Wrapper>
   );
 };
