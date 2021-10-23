@@ -22,8 +22,8 @@ const Wrapper = styled.div`
 const Board = ({ squares, onClick }) => {
   return (
     <Wrapper>
-      {squares.map((square, index) => (
-        <Square key={index} value={square} onClick={() => onClick(index)} />
+      {squares.map((square, i) => (
+        <Square key={i} value={square} onClick={() => onClick(i)} />
       ))}
     </Wrapper>
   );
