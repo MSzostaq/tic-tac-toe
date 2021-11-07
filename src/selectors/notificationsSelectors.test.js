@@ -1,4 +1,4 @@
-import { getNotifications } from "selectors/notificationsSelectors";
+import { getNotifications } from "selectors";
 
 describe("notifications selectors", () => {
   describe("getNotifications", () => {
