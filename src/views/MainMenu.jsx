@@ -6,17 +6,20 @@ import {
   Switch,
 } from "react-router-dom";
 import styled, { ThemeProvider } from "styled-components";
-import { theme } from "constants/theme";
+import {
+  SINGLE_PLAYER,
+  MULTI_PLAYER,
+  MULTI_PLAYER_ONLINE,
+} from "constants/gameModes";
+import { theme } from "themes/light";
 import Dashboard from "views/Dashboard";
-import MultiplayerLocal from "views/MultiplayerLocal";
-import MultiplayerOnline from "views/MultiplayerOnline";
-import SinglePlayer from "views/SinglePlayer";
+import Game from "views/Game";
 
 const Wrapper = styled.div`
   height: 100%;
 `;
 
-const Main = () => {
+const MainMenu = () => {
   return (
     <Router>
       <ThemeProvider theme={theme}>
@@ -26,13 +29,13 @@ const Main = () => {
               <Dashboard />
             </Route>
             <Route path="/singleplayer">
-              <SinglePlayer />
+              <Game modeId={SINGLE_PLAYER} />
             </Route>
             <Route path="/multiplayer-local">
-              <MultiplayerLocal />
+              <Game modeId={MULTI_PLAYER} />
             </Route>
             <Route path="/multiplayer-online">
-              <MultiplayerOnline />
+              <Game modeId={MULTI_PLAYER_ONLINE} />
             </Route>
             <Redirect to="/" />
           </Switch>
@@ -42,4 +45,4 @@ const Main = () => {
   );
 };
 
-export default Main;
+export default MainMenu;
