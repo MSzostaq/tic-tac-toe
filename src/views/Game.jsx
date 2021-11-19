@@ -21,7 +21,7 @@ const BackButton = styled(NavLink)`
   display: flex;
   padding: 4px;
   position: absolute;
-  top: 16px;
+  top: 64px;
   left: 16px;
 `;
 
