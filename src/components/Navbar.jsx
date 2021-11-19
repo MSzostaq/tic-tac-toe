@@ -18,16 +18,15 @@ const StyledNavbar = styled.div`
 const Navbar = () => {
   const { i18n } = useTranslation();
 
-  const [value, setValue] = useState(false);
-
   const changeLanguage = (lng) => {
     i18n.changeLanguage(lng);
   };
 
-  const onValueChange = (newValue) => {
+  const [value, setValue] = useState(false);
+  function onValueChange(newValue) {
     setValue(newValue);
     changeLanguage(newValue ? "pl" : "en");
-  };
+  }
 
   return (
     <StyledNavbar>
