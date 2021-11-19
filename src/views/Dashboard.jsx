@@ -1,6 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
+import { useTranslation } from "react-i18next";
 
 const Wrapper = styled.div`
   display: flex;
@@ -32,13 +33,17 @@ const StyledLink = styled(NavLink)`
 `;
 
 const Dashboard = () => {
+  const { t } = useTranslation();
+
   return (
     <Wrapper>
       <Button>
         <StyledLink to="/singleplayer">Single Player</StyledLink>
       </Button>
       <Button>
-        <StyledLink to="/multiplayer-local">Multiplayer (local)</StyledLink>
+        <StyledLink to="/multiplayer-local">
+          {t("multiplayer_local")}
+        </StyledLink>
       </Button>
       <Button>
         <StyledLink to="/multiplayer-online">Multiplayer (online)</StyledLink>
