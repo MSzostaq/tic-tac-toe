@@ -14,6 +14,7 @@ import {
 import { theme } from "themes/light";
 import Dashboard from "views/Dashboard";
 import Game from "views/Game";
+import Navbar from "components/Navbar";
 
 const Wrapper = styled.div`
   height: 100%;
@@ -24,6 +25,7 @@ const MainMenu = () => {
     <Router>
       <ThemeProvider theme={theme}>
         <Wrapper>
+          <Navbar />
           <Switch>
             <Route exact path="/">
               <Dashboard />
