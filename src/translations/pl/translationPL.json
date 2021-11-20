@@ -1,3 +1,6 @@
 {
-  "multiplayer_local": "Multiplayer (lokalny)"
+  "single_player": "Gra jednoosobowa",
+  "multiplayer_local": "Multiplayer (lokalny)",
+  "multiplayer_online": "Multiplayer (sieciowy)",
+  "about": "O aplikacji"
 }
