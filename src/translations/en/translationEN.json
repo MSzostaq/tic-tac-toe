@@ -1,3 +1,6 @@
 {
-  "multiplayer_local": "Multiplayer (local)"
+  "single_player": "Single Player",
+  "multiplayer_local": "Multiplayer (local)",
+  "multiplayer_online": "Multiplayer (online)",
+  "about": "About"
 }
