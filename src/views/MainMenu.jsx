@@ -25,7 +25,7 @@ const MainMenu = () => {
       <Wrapper>
         <Navbar />
         <Switch>
-          <Route exact path="/">
+          <Route exact path="/menu">
             <Dashboard />
           </Route>
           <Route path="/singleplayer">
@@ -37,7 +37,7 @@ const MainMenu = () => {
           <Route path="/multiplayer-online">
             <Game modeId={MULTI_PLAYER_ONLINE} />
           </Route>
-          <Redirect to="/" />
+          <Redirect to="/menu" />
         </Switch>
       </Wrapper>
     </Router>

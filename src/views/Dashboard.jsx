@@ -31,6 +31,9 @@ const Button = styled.button`
 `;
 
 const StyledNavLink = styled(NavLink)`
+  display: flex;
+  align-items: center;
+  justify-content: center;
   padding: 0px;
   width: 100%;
   height: 100%;
