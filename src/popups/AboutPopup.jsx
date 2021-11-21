@@ -11,6 +11,7 @@ const Overlay = styled.div`
   align-items: center;
   justify-content: center;
   position: fixed;
+  z-index: 999;
   width: 100%;
   height: 100%;
 `;
@@ -26,6 +27,7 @@ const Popup = styled(motion.div)`
 
 const CloseIcon = styled(Icon)`
   color: ${({ theme }) => theme.colors.icons};
+  cursor: pointer;
   width: 40px;
   height: 40px;
 `;
@@ -57,8 +59,13 @@ const AboutPopup = () => {
 
   return (
     <Overlay onClick={onOverlayClick}>
-      <Popup onClick={onPopupClick}>
-        <CloseIcon icon="cancel" onClick={onOverlayClick} />
+      <Popup
+        onClick={onPopupClick}
+        initial={{ opacity: 0, y: -10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.2 }}
+      >
+        <CloseIcon icon="close" onClick={onOverlayClick} />
       </Popup>
     </Overlay>
   );
