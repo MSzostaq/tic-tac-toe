@@ -7,6 +7,7 @@ import { initGame } from "actions/gameActions";
 import Icon from "components/Icon";
 
 const Wrapper = styled.div`
+  background-color: ${({ theme }) => theme.colors.background};
   display: flex;
   align-items: center;
   justify-content: center;
@@ -21,7 +22,8 @@ const BackButton = styled(NavLink)`
   display: flex;
   padding: 4px;
   position: absolute;
-  top: 64px;
+  z-index: 3;
+  top: 16px;
   left: 16px;
 `;
 
