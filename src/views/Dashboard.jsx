@@ -2,10 +2,12 @@ import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import { useTranslation } from "react-i18next";
+import logo from "assets/xoxo_logo.png";
 import AboutPopup from "popups/AboutPopup";
 import Modal from "components/Modal";
 
 const Wrapper = styled.div`
+  background-color: ${({ theme }) => theme.colors.background};
   display: flex;
   align-items: center;
   justify-content: center;
@@ -13,6 +15,15 @@ const Wrapper = styled.div`
   grid-gap: 12px;
   position: relative;
   height: 100%;
+`;
+
+const Logo = styled.img`
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  z-index: 2;
+  width: 200px;
+  height: 120px;
 `;
 
 const Button = styled.button`
@@ -50,6 +61,7 @@ const Dashboard = () => {
 
   return (
     <Wrapper>
+      <Logo src={logo} />
       <Button>
         <StyledNavLink to="/singleplayer">{t("single_player")}</StyledNavLink>
       </Button>
