@@ -6,7 +6,7 @@ import { ESC } from "constants/keys";
 import Icon from "components/Icon";
 
 const Overlay = styled.div`
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 0.3);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -17,8 +17,8 @@ const Overlay = styled.div`
 `;
 
 const Popup = styled(motion.div)`
-  background-color: ${({ theme }) => theme.colors.backgroundPopup};
-  box-shadow: 0px 0px 8px 0px ${({ theme }) => theme.colors.darkGrey};
+  background-color: ${({ theme }) => theme.colors.popup};
+  box-shadow: 0px 0px 4px 0px ${({ theme }) => theme.colors.darkPurple};
   overflow-y: hidden;
   positon: absolute;
   width: 50vw;
