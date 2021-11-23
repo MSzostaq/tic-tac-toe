@@ -1,6 +1,7 @@
 import React from "react";
 import styled, { ThemeProvider } from "styled-components";
-import { theme } from "themes/light";
+import { darkTheme, lightTheme } from "themes/theme";
+import { useDarkMode } from "hooks/useDarkMode";
 import GlobalProvider from "components/GlobalProvider";
 import ModalsProvider from "components/ModalsProvider";
 import Modals from "components/Modals";
@@ -18,9 +19,12 @@ const AppNotifications = styled(Notifications)`
 `;
 
 const App = () => {
+  const [theme, toggleTheme] = useDarkMode();
+  const themeMode = theme === "light" ? lightTheme : darkTheme;
+
   return (
     <StyledApp>
-      <ThemeProvider theme={theme}>
+      <ThemeProvider theme={themeMode} toggleTheme={toggleTheme}>
         <GlobalProvider>
           <ModalsProvider>
             <Routes />
