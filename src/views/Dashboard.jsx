@@ -27,10 +27,10 @@ const Logo = styled.img`
 `;
 
 const Button = styled.button`
-  background-color: transparent;
+  background-color: ${({ theme }) => theme.colors.popup};
   box-shadow: 0px 0px 2px 0px ${({ theme }) => theme.colors.darkPurple};
   border-radius: 8px;
-  color: ${({ theme }) => theme.colors.icons};
+  color: ${({ theme }) => theme.colors.text};
   display: flex;
   align-items: center;
   justify-content: center;

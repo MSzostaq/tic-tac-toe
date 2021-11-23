@@ -3,7 +3,7 @@ import styled from "styled-components";
 import Square from "components/Square";
 
 const Wrapper = styled.div`
-  background-color: ${({ theme }) => theme.colors.darkGrey};
+  background-color: ${({ theme }) => theme.colors.board};
   border-radius: 8px;
   box-shadow: 0px 0px 2px 0px ${({ theme }) => theme.colors.darkPurple};
   display: grid;

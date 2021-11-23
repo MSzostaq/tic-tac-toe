@@ -34,14 +34,6 @@ const BackIcon = styled(Icon)`
   height: 24px;
 `;
 
-const GameWrapper = styled.div`
-  background-color: ${({ theme }) => theme.colors.lightGrey};
-  border-radius: 8px;
-  box-shadow: 0px 0px 2px 0px ${({ theme }) => theme.colors.darkPurple};
-  width: 500px;
-  height: 500px;
-`;
-
 const Game = ({ dispatch, game, modeId }) => {
   useEffect(() => {
     dispatch(initGame({ modeId }));

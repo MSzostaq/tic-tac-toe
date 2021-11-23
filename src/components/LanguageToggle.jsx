@@ -4,7 +4,7 @@ import pl_circle from "assets/pl_circle.png";
 import uk_circle from "assets/uk_circle.png";
 
 const ToggleButton = styled.button`
-  background-color: ${({ theme }) => theme.colors.darkPurple};
+  background-color: ${({ theme }) => theme.colors.board};
   border-radius: 16px;
   display: flex;
   align-items: center;
