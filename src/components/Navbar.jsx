@@ -17,7 +17,7 @@ const StyledNavbar = styled.div`
   height: 56px;
 `;
 
-const Navbar = () => {
+const Navbar = ({ toggleTheme }) => {
   const { i18n } = useTranslation();
 
   const changeLanguage = (lng) => {
@@ -33,7 +33,7 @@ const Navbar = () => {
   return (
     <StyledNavbar>
       <LanguageToggle value={value} onChange={onValueChange} />
-      <ThemeToggle />
+      <ThemeToggle onClick={toggleTheme} />
     </StyledNavbar>
   );
 };
