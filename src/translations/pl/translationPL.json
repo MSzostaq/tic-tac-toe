@@ -2,5 +2,6 @@
   "single_player": "Gra jednoosobowa",
   "multiplayer_local": "Multiplayer (lokalny)",
   "multiplayer_online": "Multiplayer (sieciowy)",
-  "about": "O aplikacji"
+  "about": "O aplikacji",
+  "about_popup": "XOXO jest prostą grą kółko-krzyżyk. Posiada trzy tryby gry: gra jednoosobowa, multiplayer lokalny oraz multiplayer sieciowy. Gra posiada wspaniałe animacje wykonane za pomocą Rive. Aplikacja została stworzona przy użyciu React, React-Redux i wielu innych przydatnych paczek."
 }
