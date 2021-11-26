@@ -17,7 +17,7 @@ const Wrapper = styled.div`
 
 const BackButton = styled(NavLink)`
   border-radius: 8px;
-  box-shadow: 0px 0px 2px 0px ${({ theme }) => theme.colors.black};
+  box-shadow: 0px 0px 2px 0px ${({ theme }) => theme.colors.shadow};
   cursor: pointer;
   display: flex;
   padding: 4px;
