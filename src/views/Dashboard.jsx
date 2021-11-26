@@ -28,7 +28,7 @@ const Logo = styled.img`
 
 const Button = styled.button`
   background-color: ${({ theme }) => theme.colors.popup};
-  box-shadow: 0px 0px 2px 0px ${({ theme }) => theme.colors.black};
+  box-shadow: 0px 0px 2px 0px ${({ theme }) => theme.colors.shadow};
   border-radius: 8px;
   color: ${({ theme }) => theme.colors.text};
   display: flex;
