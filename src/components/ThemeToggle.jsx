@@ -21,7 +21,7 @@ const ToggleButton = styled.button`
 `;
 
 const Switch = styled.div`
-  background-color: ${({ theme }) => theme.colors.black};
+  background-color: ${({ theme }) => theme.colors.shadow};
   border-radius: 50%;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
   display: flex;
