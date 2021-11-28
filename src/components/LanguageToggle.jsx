@@ -8,7 +8,8 @@ const ToggleButton = styled.button`
   border-radius: 16px;
   display: flex;
   align-items: center;
-  justify-content: ${({ isOn }) => (isOn ? "flex-end" : "flex-start")};
+  justify-content: ${({ value }) =>
+    value === "pl" ? "flex-end" : "flex-start"};
   margin-right: 12px;
   width: 56px;
   height: 32px;
@@ -21,7 +22,7 @@ const ToggleButton = styled.button`
 `;
 
 const Switch = styled.div`
-  background: url(${({ isOn }) => (isOn ? pl_circle : uk_circle)});
+  background: url(${({ value }) => (value === "pl" ? pl_circle : uk_circle)});
   background-size: cover;
   border-radius: 50%;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
@@ -36,12 +37,12 @@ const Switch = styled.div`
 
 const LanguageToggle = ({ value, onChange }) => {
   function onLanguageToggleClick() {
-    onChange(!value);
+    onChange(value === "pl" ? "en" : "pl");
   }
 
   return (
-    <ToggleButton isOn={value} onClick={onLanguageToggleClick}>
-      <Switch isOn={value} />
+    <ToggleButton value={value} onClick={onLanguageToggleClick}>
+      <Switch value={value} />
     </ToggleButton>
   );
 };
