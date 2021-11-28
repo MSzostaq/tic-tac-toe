@@ -88,26 +88,11 @@ const PopupFooter = styled.div`
   height: 48px;
 `;
 
-const AboutPopup = () => {
+const AboutPopup = ({ onClose }) => {
   const { t } = useTranslation();
-  const history = useHistory();
-
-  useEffect(() => {
-    document.addEventListener("keydown", onKeyDown);
-    return () => {
-      document.removeEventListener("keydown", onKeyDown);
-    };
-  }, []);
 
   function onOverlayClick() {
-    history.push("/");
-  }
-
-  function onKeyDown(event) {
-    if (event.keyCode === ESC) {
-      event.preventDefault();
-      history.push("/");
-    }
+    onClose();
   }
 
   function onPopupClick(event) {
