@@ -8,7 +8,8 @@ const ToggleButton = styled.button`
   border-radius: 16px;
   display: flex;
   align-items: center;
-  justify-content: ${({ isOn }) => (isOn ? "flex-end" : "flex-start")};
+  justify-content: ${({ value }) =>
+    value === "light" ? "flex-end" : "flex-start"};
   margin-right: 12px;
   width: 56px;
   height: 32px;
@@ -21,7 +22,7 @@ const ToggleButton = styled.button`
 `;
 
 const Switch = styled.div`
-  background-color: ${({ theme }) => theme.colors.shadow};
+  background-color: ${({ theme }) => theme.colors.black};
   border-radius: 50%;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
   display: flex;
@@ -37,7 +38,7 @@ const Switch = styled.div`
 `;
 
 const SwitchImage = styled.div`
-  background: url(${({ isOn }) => (isOn ? sun : moon)});
+  background: url(${({ value }) => (value === "light" ? sun : moon)});
   background-color: ${({ theme }) => theme.colors.black};
   background-repeat: no-repeat;
   background-size: contain;
@@ -46,13 +47,15 @@ const SwitchImage = styled.div`
   height: 28px;
 `;
 
-const ThemeToggle = ({ theme, toggleTheme }) => {
-  const isLight = theme === "light";
+const ThemeToggle = ({ value, onChange }) => {
+  function onToggleButtonClick() {
+    onChange(value === "light" ? "dark" : "light");
+  }
 
   return (
-    <ToggleButton lightTheme={isLight} onClick={toggleTheme}>
-      <Switch>
-        <SwitchImage />
+    <ToggleButton value={value} onClick={onToggleButtonClick}>
+      <Switch value={value}>
+        <SwitchImage value={value} />
       </Switch>
     </ToggleButton>
   );
