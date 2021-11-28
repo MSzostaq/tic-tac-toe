@@ -1,5 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
+import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
+import { SET_THEME } from "actions/themeActions";
+import { getTheme } from "selectors";
 import { useTranslation } from "react-i18next";
 import LanguageToggle from "components/LanguageToggle";
 import ThemeToggle from "components/ThemeToggle";
@@ -17,23 +20,32 @@ const StyledNavbar = styled.div`
   height: 56px;
 `;
 
-const Navbar = ({ toggleTheme }) => {
+const Logo = styled.img`
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  z-index: 2;
+  width: 200px;
+  height: 120px;
+`;
+
+const Navbar = () => {
   const { i18n } = useTranslation();
+  const dispatch = useDispatch();
+  const theme = useSelector(getTheme);
 
-  const changeLanguage = (lng) => {
-    i18n.changeLanguage(lng);
-  };
+  function onLanguageChange(value) {
+    i18n.changeLanguage(value);
+  }
 
-  const [value, setValue] = useState(false);
-  function onValueChange(newValue) {
-    setValue(newValue);
-    changeLanguage(newValue ? "pl" : "en");
+  function onThemeChange(value) {
+    dispatch({ type: SET_THEME, payload: value });
   }
 
   return (
     <StyledNavbar>
-      <LanguageToggle value={value} onChange={onValueChange} />
-      <ThemeToggle onClick={toggleTheme} />
+      <ThemeToggle value={theme} onChange={onThemeChange} />
+      <LanguageToggle value={i18n.language} onChange={onLanguageChange} />
     </StyledNavbar>
   );
 };
