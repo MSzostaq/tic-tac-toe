@@ -1,12 +1,14 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import styled, { ThemeProvider } from "styled-components";
-import { darkTheme, lightTheme } from "themes/theme";
-import { useDarkMode } from "hooks/useDarkMode";
+import { SET_THEME } from "actions/themeActions";
+import { getTheme } from "selectors";
+import themes from "themes";
+import Main from "views/Main";
 import GlobalProvider from "components/GlobalProvider";
 import ModalsProvider from "components/ModalsProvider";
 import Modals from "components/Modals";
 import Notifications from "components/Notifications";
-import Routes from "components/Routes";
 
 const StyledApp = styled.div`
   height: 100%;
@@ -19,15 +21,24 @@ const AppNotifications = styled(Notifications)`
 `;
 
 const App = () => {
-  const [theme, toggleTheme] = useDarkMode();
-  const themeMode = theme === "light" ? lightTheme : darkTheme;
+  const dispatch = useDispatch();
+  const theme = useSelector(getTheme);
+
+  useEffect(() => {
+    const storedTheme = localStorage.getItem("theme");
+    if (!storedTheme) {
+      return;
+    }
+
+    dispatch({ type: SET_THEME, payload: storedTheme });
+  }, []);
 
   return (
     <StyledApp>
-      <ThemeProvider theme={themeMode} toggleTheme={toggleTheme}>
+      <ThemeProvider theme={themes[theme]}>
         <GlobalProvider>
           <ModalsProvider>
-            <Routes />
+            <Main />
             <Modals />
             <AppNotifications />
           </ModalsProvider>
