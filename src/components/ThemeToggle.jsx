@@ -4,7 +4,7 @@ import moon from "assets/moon.png";
 import sun from "assets/sun.png";
 
 const ToggleButton = styled.button`
-  background-color: ${({ theme }) => theme.colors.board};
+  background-color: ${({ theme }) => theme.colors.toggle};
   border-radius: 16px;
   display: flex;
   align-items: center;
@@ -22,7 +22,7 @@ const ToggleButton = styled.button`
 `;
 
 const Switch = styled.div`
-  background-color: ${({ theme }) => theme.colors.black};
+  background-color: ${({ theme }) => theme.colors.shadow};
   border-radius: 50%;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
   display: flex;
@@ -39,7 +39,7 @@ const Switch = styled.div`
 
 const SwitchImage = styled.div`
   background: url(${({ value }) => (value === "light" ? sun : moon)});
-  background-color: ${({ theme }) => theme.colors.black};
+  background-color: ${({ theme }) => theme.colors.shadow};
   background-repeat: no-repeat;
   background-size: contain;
   border-radius: 50%;
