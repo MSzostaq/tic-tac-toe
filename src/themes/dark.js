@@ -10,6 +10,7 @@ export default {
     shadow: "#343434",
     succes: "#76bd70",
     text: "#d3d3d3",
+    toggle: "#555555",
     white: "#f8f8f8",
   },
   fontSize: {
