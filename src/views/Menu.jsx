@@ -33,6 +33,7 @@ const Button = styled.button`
   align-items: center;
   justify-content: center;
   font-size: ${({ theme }) => theme.colors.xl};
+  font-weight: bold;
   text-decoration: none;
   padding: 8px;
   width: 180px;
