@@ -1,21 +1,29 @@
 import React from "react";
 import styled from "styled-components";
+import Icon from "components/Icon";
 
 const Squares = styled.div`
-  background-color: ${({ theme }) => theme.colors.lightGrey};
+  background-color: ${({ theme }) => theme.colors.background};
   border: none;
-  color: ${({ theme }) => theme.colors.darkGrey};
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: sans-serif;
-  font-size: ${({ theme }) => theme.fontSize.xxl};
   cursor: pointer;
   outline: none;
 `;
 
-const Square = ({ value, onClick }) => {
-  return <Squares onClick={onClick}>{value}</Squares>;
+const StyledIcon = styled(Icon)`
+  color: ${({ theme }) => theme.colors.text};
+  width: 48px;
+  height: 48px;
+`;
+
+const Square = () => {
+  return (
+    <Squares>
+      <StyledIcon icon="x" />
+    </Squares>
+  );
 };
 
 export default Square;
