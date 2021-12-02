@@ -23,3 +23,7 @@ export const initGame = ({ modeId = SINGLE_PLAYER }) => {
     payload: { modeId, players, board: [[], [], []], moves: [] },
   };
 };
+
+export const START_GAME = "START_GAME";
+export const PLAYER_MOVE = "PLAYER_MOVE";
+export const END_GAME = "END_GAME";
