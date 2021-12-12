@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import Icon from "components/Icon";
 
-const Squares = styled.div`
+const Cell = styled.div`
   background-color: ${({ theme }) => theme.colors.background};
   border: none;
   display: flex;
@@ -14,16 +14,21 @@ const Squares = styled.div`
 
 const StyledIcon = styled(Icon)`
   color: ${({ theme }) => theme.colors.text};
-  width: 48px;
-  height: 48px;
+  width: 96px;
+  height: 96px;
 `;
 
-const Square = () => {
+const BoardCell = ({ x, y, value, onClick }) => {
+  function onCellClick() {
+    if (value) {
+      return;
+    }
+    onClick({ x, y });
+  }
+
   return (
-    <Squares>
-      <StyledIcon icon="x" />
-    </Squares>
+    <Cell onClick={onCellClick}>{value && <StyledIcon icon={value} />}</Cell>
   );
 };
 
-export default Square;
+export default BoardCell;
