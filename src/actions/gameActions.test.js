@@ -9,7 +9,7 @@ describe("game actions", () => {
   describe("initGame", () => {
     it("should create an action to init single player game", () => {
       const action = initGame({ modeId: SINGLE_PLAYER });
-      const { modeId, players, board, moves } = action.payload;
+      const { modeId, players, currentPlayerId, board, moves } = action.payload;
       const p1 = players[1];
       const p2 = players[2];
       const xo = ["X", "O"];
@@ -17,6 +17,7 @@ describe("game actions", () => {
       expect(modeId).toBe(SINGLE_PLAYER);
       expect(p1.id).toBe(1);
       expect(p2.id).toBe(2);
+      expect([1, 2].includes(currentPlayerId)).toBe(true);
       expect(p1.isHuman).toBe(true);
       expect(p2.isHuman).toBe(false);
       expect(xo.includes(p1.symbol)).toBe(true);
