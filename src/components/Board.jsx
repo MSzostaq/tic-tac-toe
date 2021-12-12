@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import Square from "components/Square";
+import BoardCell from "components/BoardCell";
 
 const BoardWrapper = styled.div`
   background-color: ${({ theme }) => theme.colors.board};
@@ -15,8 +15,22 @@ const BoardWrapper = styled.div`
   height: 480px;
 `;
 
-const Board = ({ game }) => {
-  return <BoardWrapper></BoardWrapper>;
+const Board = ({ board, onCellClick }) => {
+  return (
+    <BoardWrapper>
+      {board.map((row, y) =>
+        row.map((cell, x) => (
+          <BoardCell
+            key={`${x},${y}`}
+            value={cell}
+            onClick={onCellClick}
+            x={x}
+            y={y}
+          />
+        ))
+      )}
+    </BoardWrapper>
+  );
 };
 
 export default Board;

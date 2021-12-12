@@ -1,9 +1,10 @@
 import React, { useEffect } from "react";
-import { connect } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import { getGame } from "selectors";
-import { initGame } from "actions/gameActions";
+import { initGame, PLAYER_MOVE } from "actions/gameActions";
+import Board from "components/Board";
 import Icon from "components/Icon";
 
 const Wrapper = styled.div`
@@ -11,6 +12,7 @@ const Wrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
   height: 100%;
   width: 100%;
 `;
@@ -34,12 +36,35 @@ const BackIcon = styled(Icon)`
   height: 24px;
 `;
 
-const Game = ({ dispatch, game, modeId }) => {
+const Move = styled.p`
+  color: ${({ theme }) => theme.colors.text};
+  font-size: ${({ theme }) => theme.fontSize.xxl};
+  font-weight: bold;
+  margin-bottom: 12px;
+`;
+
+const Game = ({ modeId }) => {
+  const dispatch = useDispatch();
+  const game = useSelector(getGame);
+
   useEffect(() => {
     dispatch(initGame({ modeId }));
-  }, []);
+  }, [dispatch, modeId]);
 
-  if (!game) {
+  function onBoardCellClick({ x, y }) {
+    const player = game.players[game.currentPlayerId];
+    dispatch({
+      type: PLAYER_MOVE,
+      payload: {
+        x,
+        y,
+        playerId: player.id,
+        symbol: player.symbol,
+      },
+    });
+  }
+
+  if (!game.modeId) {
     return null;
   }
 
@@ -48,10 +73,10 @@ const Game = ({ dispatch, game, modeId }) => {
       <BackButton to="/">
         <BackIcon icon="caretDown" />
       </BackButton>
+      <Move>Player {game.currentPlayerId} moves</Move>
+      <Board board={game.board} onCellClick={onBoardCellClick} />
     </Wrapper>
   );
 };
 
-const mapStateToProps = (state) => ({ game: getGame(state) });
-
-export default connect(mapStateToProps)(Game);
+export default Game;
