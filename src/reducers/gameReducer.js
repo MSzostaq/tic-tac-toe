@@ -1,12 +1,16 @@
-import { INIT_GAME } from "actions/gameActions";
+import { combineReducers } from "redux";
+import modeIdReducer from "reducers/modeIdReducer";
+import playersReducer from "reducers/playersReducer";
+import currentPlayerIdReducer from "reducers/currentPlayerIdReducer";
+import boardReducer from "reducers/boardReducer";
+import movesReducer from "reducers/movesReducer";
 
-const initialState = null;
+const gameReducer = combineReducers({
+  modeId: modeIdReducer,
+  players: playersReducer,
+  currentPlayerId: currentPlayerIdReducer,
+  board: boardReducer,
+  moves: movesReducer,
+});
 
-export default function gameReducer(state = initialState, action) {
-  switch (action.type) {
-    case INIT_GAME:
-      return action.payload;
-    default:
-      return state;
-  }
-}
+export default gameReducer;
