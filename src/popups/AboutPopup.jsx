@@ -1,9 +1,7 @@
-import React, { useEffect } from "react";
+import React from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
-import { useHistory } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import { ESC } from "constants/keys";
 import Icon from "components/Icon";
 
 const Overlay = styled.div`
