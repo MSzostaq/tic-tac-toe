@@ -20,12 +20,16 @@ describe("game actions", () => {
       expect([1, 2].includes(currentPlayerId)).toBe(true);
       expect(p1.isHuman).toBe(true);
       expect(p2.isHuman).toBe(false);
-      expect(xo.includes(p1.symbol)).toBe(true);
-      expect(xo.includes(p2.symbol)).toBe(true);
+      expect(xo.includes(p1.symbol)).toBe(false);
+      expect(xo.includes(p2.symbol)).toBe(false);
       expect(p1.symbol).not.toBe(p2.symbol);
       expect(p1.score).toBe(0);
       expect(p1.score).toBe(0);
-      expect(board).toEqual([[], [], []]);
+      expect(board).toEqual([
+        [null, null, null],
+        [null, null, null],
+        [null, null, null],
+      ]);
       expect(moves).toEqual([]);
     });
 
@@ -41,12 +45,16 @@ describe("game actions", () => {
       expect(p2.id).toBe(2);
       expect(p1.isHuman).toBe(true);
       expect(p2.isHuman).toBe(true);
-      expect(xo.includes(p1.symbol)).toBe(true);
-      expect(xo.includes(p2.symbol)).toBe(true);
+      expect(xo.includes(p1.symbol)).toBe(false);
+      expect(xo.includes(p2.symbol)).toBe(false);
       expect(p1.symbol).not.toBe(p2.symbol);
       expect(p1.score).toBe(0);
       expect(p1.score).toBe(0);
-      expect(board).toEqual([[], [], []]);
+      expect(board).toEqual([
+        [null, null, null],
+        [null, null, null],
+        [null, null, null],
+      ]);
       expect(moves).toEqual([]);
     });
 
@@ -62,12 +70,16 @@ describe("game actions", () => {
       expect(p2.id).toBe(2);
       expect(p1.isHuman).toBe(true);
       expect(p2.isHuman).toBe(true);
-      expect(xo.includes(p1.symbol)).toBe(true);
-      expect(xo.includes(p2.symbol)).toBe(true);
+      expect(xo.includes(p1.symbol)).toBe(false);
+      expect(xo.includes(p2.symbol)).toBe(false);
       expect(p1.symbol).not.toBe(p2.symbol);
       expect(p1.score).toBe(0);
       expect(p1.score).toBe(0);
-      expect(board).toEqual([[], [], []]);
+      expect(board).toEqual([
+        [null, null, null],
+        [null, null, null],
+        [null, null, null],
+      ]);
       expect(moves).toEqual([]);
     });
   });
