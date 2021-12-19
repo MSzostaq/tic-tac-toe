@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import { useTranslation } from "react-i18next";
-import AboutPopup from "popups/AboutPopup";
+import About from "popups/About";
 import Icon from "components/Icon";
 import Modal from "components/Modal";
 
@@ -77,7 +77,7 @@ const Dashboard = () => {
       <Button onClick={openModal}>{t("about")}</Button>
       {modal && (
         <Modal onClose={() => setModal(null)}>
-          <AboutPopup onClose={() => setModal(null)} />
+          <About onClose={() => setModal(null)} />
         </Modal>
       )}
     </Wrapper>

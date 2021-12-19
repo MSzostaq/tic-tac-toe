@@ -86,7 +86,7 @@ const PopupFooter = styled.div`
   height: 48px;
 `;
 
-const AboutPopup = ({ onClose }) => {
+const About = ({ onClose }) => {
   const { t } = useTranslation();
 
   function onOverlayClick() {
@@ -117,4 +117,4 @@ const AboutPopup = ({ onClose }) => {
   );
 };
 
-export default AboutPopup;
+export default About;
