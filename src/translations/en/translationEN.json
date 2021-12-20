@@ -5,5 +5,8 @@
   "about": "About",
   "about_popup": "XOXO is a simple tic-tac-toe game. It has three game modes: single player, multiplayer local and multiplayer online. Game has beatiful Rive animations and is made with React, React-Redux and many other usefull packages. ",
   "player": "Player",
-  "move": "moves"
+  "move": "moves",
+  "play_again_popup": "Do you want to play again?",
+  "play_again": "Play again",
+  "cancel": "Back to menu"
 }
