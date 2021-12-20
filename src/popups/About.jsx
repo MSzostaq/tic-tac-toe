@@ -17,7 +17,7 @@ const Overlay = styled.div`
 
 const Popup = styled(motion.div)`
   background-color: ${({ theme }) => theme.colors.popup};
-  box-shadow: 0px 0px 4px 0px ${({ theme }) => theme.colors.black};
+  box-shadow: 0px 0px 4px 0px ${({ theme }) => theme.colors.shadow};
   border-radius: 8px;
   display: flex;
   flex-direction: column;
@@ -69,19 +69,11 @@ const StyledText = styled.p`
   font-size: ${({ theme }) => theme.fontSize.xl};
   line-height: 1.3;
   text-align: justify;
-
-  @media (min-width: 800px) {
-    line-height: 1.3;
-  }
-
-  @media (min-width: 1800px) {
-    line-height: 1.3;
-  }
 `;
 
 const PopupFooter = styled.div`
   background-color: ${({ theme }) => theme.colors.background};
-  border-top: 2px solid ${({ theme }) => theme.colors.black};
+  border-top: 2px solid ${({ theme }) => theme.colors.shadow};
   width: 100%;
   height: 48px;
 `;
