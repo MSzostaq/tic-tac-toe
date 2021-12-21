@@ -14,7 +14,8 @@ export default {
     white: "#f8f8f8",
   },
   fontSize: {
-    xxl: "48px",
+    xxxl: "42px",
+    xxl: "32px",
     xl: "24px",
     l: "18px",
     m: "14px",
