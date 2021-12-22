@@ -36,11 +36,6 @@ const Popup = styled(motion.div)`
     height: 50vh;
   }
 
-  @media (min-width: 800px) {
-    width: 40vw;
-    height: 50vh;
-  }
-
   @media (min-width: 1800px) {
     width: 50vw;
     height: 50vh;
@@ -75,26 +70,92 @@ const PopupContent = styled.div`
   height: 100%;
 `;
 
-const StyledText = styled.p`
+const StyledMainText = styled.p`
   color: ${({ theme }) => theme.colors.text};
   font-size: ${({ theme }) => theme.fontSize.xl};
+  font-weight: bold;
+  line-height: 1.2;
+  margin-bottom: 24px;
+  text-align: center;
+
+  @media (min-width: 800px) {
+    font-size: ${({ theme }) => theme.fontSize.xxl};
+  }
+`;
+
+const StyledText = styled.p`
+  color: ${({ theme }) => theme.colors.text};
+  font-size: ${({ theme }) => theme.fontSize.l};
   line-height: 1.2;
   text-align: center;
+
+  @media (min-width: 800px) {
+    font-size: ${({ theme }) => theme.fontSize.xl};
+  }
 `;
 
 const ButtonWrapper = styled.div`
-  margin-top: 32px;
+  display: flex;
+  align-items: center;
+  margin-top: 16px;
+
+  @media (min-width: 680px) {
+    margin-top: 18px;
+  }
+
+  @media (min-width: 800px) {
+    margin-top: 24px;
+  }
+
+  @media (min-width: 1800px) {
+    margin-top: 32px;
+  }
+`;
+
+const ButtonIcon = styled(Icon)`
+  color: ${({ theme }) => theme.colors.icons};
+  cursor: pointer;
+  margin: 4px;
+  width: 24px;
+  height: 24px;
+
+  @media (min-width: 800px) {
+    width: 30px;
+    height: 30px;
+  }
+
+  @media (min-width: 1800px) {
+    width: 30px;
+    height: 30px;
+  }
 `;
 
 const Button = styled.button`
   box-shadow: 0px 0px 2px 0px ${({ theme }) => theme.colors.shadow};
   border-radius: 8px;
   color: ${({ theme }) => theme.colors.text};
-  font-size: ${({ theme }) => theme.fontSize.l};
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  font-size: ${({ theme }) => theme.fontSize.m};
   font-weight: bold;
   margin: 8px;
+  padding: 4px;
+  text-align: center;
   width: 140px;
-  height: 40px;
+  height: 36px;
+
+  @media (min-width: 800px) {
+    font-size: ${({ theme }) => theme.fontSize.l};
+    width: 160px;
+    height: 48px;
+  }
+
+  @media (min-width: 1800px) {
+    font-size: ${({ theme }) => theme.fontSize.l};
+    width: 170px;
+    height: 48px;
+  }
 `;
 
 const PopupFooter = styled.div`
@@ -127,10 +188,19 @@ const AboutPopup = ({ onClose }) => {
           <CloseIcon icon="close" onClick={onOverlayClick} />
         </PopupHeader>
         <PopupContent>
+          <StyledMainText>
+            {t("player_win")} 1 {t("win")}
+          </StyledMainText>
           <StyledText>{t("play_again_popup")}</StyledText>
           <ButtonWrapper>
-            <Button>{t("play_again")}</Button>
-            <Button>{t("cancel")}</Button>
+            <Button>
+              <ButtonIcon icon="restart" />
+              {t("play_again")}
+            </Button>
+            <Button>
+              <ButtonIcon icon="home" />
+              {t("cancel")}
+            </Button>
           </ButtonWrapper>
         </PopupContent>
         <PopupFooter />
