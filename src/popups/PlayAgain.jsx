@@ -32,12 +32,7 @@ const Popup = styled(motion.div)`
   }
 
   @media (min-width: 800px) {
-    width: 50vw;
-    height: 50vh;
-  }
-
-  @media (min-width: 1800px) {
-    width: 50vw;
+    width: 40vw;
     height: 50vh;
   }
 `;
@@ -112,24 +107,6 @@ const ButtonWrapper = styled.div`
   }
 `;
 
-const ButtonIcon = styled(Icon)`
-  color: ${({ theme }) => theme.colors.icons};
-  cursor: pointer;
-  margin: 4px;
-  width: 24px;
-  height: 24px;
-
-  @media (min-width: 800px) {
-    width: 30px;
-    height: 30px;
-  }
-
-  @media (min-width: 1800px) {
-    width: 30px;
-    height: 30px;
-  }
-`;
-
 const Button = styled.button`
   box-shadow: 0px 0px 2px 0px ${({ theme }) => theme.colors.shadow};
   border-radius: 8px;
@@ -147,14 +124,27 @@ const Button = styled.button`
 
   @media (min-width: 800px) {
     font-size: ${({ theme }) => theme.fontSize.l};
-    width: 160px;
+    width: 170px;
     height: 48px;
   }
 
   @media (min-width: 1800px) {
     font-size: ${({ theme }) => theme.fontSize.l};
-    width: 170px;
+    width: 180px;
     height: 48px;
+  }
+`;
+
+const ButtonIcon = styled(Icon)`
+  color: ${({ theme }) => theme.colors.icons};
+  cursor: pointer;
+  margin: 4px;
+  width: 24px;
+  height: 24px;
+
+  @media (min-width: 800px) {
+    width: 30px;
+    height: 30px;
   }
 `;
 
