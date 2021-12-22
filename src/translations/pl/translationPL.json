@@ -8,5 +8,7 @@
   "move": "gracza",
   "play_again_popup": "Chcesz zagrać jeszcze raz?",
   "play_again": "Zagraj ponownie",
-  "cancel": "Wróć do menu"
+  "cancel": "Wróć do menu",
+  "player_win": "Gracz",
+  "win": "wygrał!"
 }
