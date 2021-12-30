@@ -1,8 +1,9 @@
 import React from "react";
 import styled from "styled-components";
+import { motion } from "framer-motion";
 import BoardCell from "components/BoardCell";
 
-const BoardWrapper = styled.div`
+const BoardWrapper = styled(motion.div)`
   background-color: ${({ theme }) => theme.colors.board};
   border-radius: 8px;
   box-shadow: 0px 0px 2px 0px ${({ theme }) => theme.colors.darkPurple};
@@ -17,7 +18,11 @@ const BoardWrapper = styled.div`
 
 const Board = ({ board, onCellClick }) => {
   return (
-    <BoardWrapper>
+    <BoardWrapper
+      initial={{ opacity: 0, y: -10 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.2 }}
+    >
       {board.map((row, y) =>
         row.map((cell, x) => (
           <BoardCell
