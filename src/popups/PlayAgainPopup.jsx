@@ -1,7 +1,11 @@
 import React from "react";
-import styled from "styled-components";
+import { useDispatch, useSelector } from "react-redux";
+import { NavLink } from "react-router-dom";
+import styled, { css } from "styled-components";
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
+import { initGame } from "actions/gameActions";
+import { getGame } from "selectors";
 import Icon from "components/Icon";
 
 const Overlay = styled.div`
@@ -35,24 +39,6 @@ const Popup = styled(motion.div)`
     width: 40vw;
     height: 50vh;
   }
-`;
-
-const PopupHeader = styled.div`
-  background-color: ${({ theme }) => theme.colors.background};
-  border-bottom: 2px solid ${({ theme }) => theme.colors.shadow};
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  width: 100%;
-  height: 48px;
-`;
-
-const CloseIcon = styled(Icon)`
-  color: ${({ theme }) => theme.colors.icons};
-  cursor: pointer;
-  margin: 4px;
-  width: 40px;
-  height: 40px;
 `;
 
 const PopupContent = styled.div`
@@ -107,7 +93,7 @@ const ButtonWrapper = styled.div`
   }
 `;
 
-const Button = styled.button`
+const buttonStyle = css`
   box-shadow: 0px 0px 2px 0px ${({ theme }) => theme.colors.shadow};
   border-radius: 8px;
   color: ${({ theme }) => theme.colors.text};
@@ -135,6 +121,14 @@ const Button = styled.button`
   }
 `;
 
+const StyledNavLink = styled(NavLink)`
+  ${buttonStyle}
+`;
+
+const Button = styled.button`
+  ${buttonStyle}
+`;
+
 const ButtonIcon = styled(Icon)`
   color: ${({ theme }) => theme.colors.icons};
   cursor: pointer;
@@ -148,15 +142,10 @@ const ButtonIcon = styled(Icon)`
   }
 `;
 
-const PopupFooter = styled.div`
-  background-color: ${({ theme }) => theme.colors.background};
-  border-top: 2px solid ${({ theme }) => theme.colors.shadow};
-  width: 100%;
-  height: 48px;
-`;
-
-const AboutPopup = ({ onClose }) => {
+const PlayAgainPopup = ({ onClose }) => {
   const { t } = useTranslation();
+  const dispatch = useDispatch();
+  const game = useSelector(getGame);
 
   function onOverlayClick() {
     onClose();
@@ -164,6 +153,15 @@ const AboutPopup = ({ onClose }) => {
 
   function onPopupClick(event) {
     event.stopPropagation();
+  }
+
+  function onPlayAgainButtonClick() {
+    dispatch(
+      initGame({
+        modeId: game.modeId,
+        score: { 1: game.players[1].score, 2: game.players[2].score },
+      })
+    );
   }
 
   return (
@@ -174,29 +172,25 @@ const AboutPopup = ({ onClose }) => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.2 }}
       >
-        <PopupHeader>
-          <CloseIcon icon="close" onClick={onOverlayClick} />
-        </PopupHeader>
         <PopupContent>
           <StyledMainText>
-            {t("player_win")} 1 {t("win")}
+            {t("player_win")} {game.winnerId} {t("win")}
           </StyledMainText>
           <StyledText>{t("play_again_popup")}</StyledText>
           <ButtonWrapper>
-            <Button>
+            <StyledNavLink to="/">
+              <ButtonIcon icon="home" />
+              {t("cancel")}
+            </StyledNavLink>
+            <Button onClick={onPlayAgainButtonClick}>
               <ButtonIcon icon="restart" />
               {t("play_again")}
             </Button>
-            <Button>
-              <ButtonIcon icon="home" />
-              {t("cancel")}
-            </Button>
           </ButtonWrapper>
         </PopupContent>
-        <PopupFooter />
       </Popup>
     </Overlay>
   );
 };
 
-export default AboutPopup;
+export default PlayAgainPopup;
