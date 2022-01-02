@@ -5,6 +5,7 @@ import styled from "styled-components";
 import { useTranslation } from "react-i18next";
 import { getGame } from "selectors";
 import { initGame, PLAYER_MOVE } from "actions/gameActions";
+import PlayAgainPopup from "popups/PlayAgainPopup";
 import Board from "components/Board";
 import Icon from "components/Icon";
 
@@ -37,7 +38,7 @@ const BackIcon = styled(Icon)`
   height: 24px;
 `;
 
-const Move = styled.p`
+const NextMove = styled.p`
   color: ${({ theme }) => theme.colors.text};
   font-size: ${({ theme }) => theme.fontSize.xxl};
   font-weight: bold;
@@ -75,10 +76,11 @@ const Game = ({ modeId }) => {
       <BackButton to="/">
         <BackIcon icon="caretDown" />
       </BackButton>
-      <Move>
-        {t("player")} {game.currentPlayerId} {t("move")}
-      </Move>
+      <NextMove>
+        {game.players[1].score} : {game.players[2].score}
+      </NextMove>
       <Board board={game.board} onCellClick={onBoardCellClick} />
+      {game.winnerId !== null && <PlayAgainPopup />}
     </Wrapper>
   );
 };
