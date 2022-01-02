@@ -20,15 +20,6 @@ const StyledNavbar = styled.div`
   height: 56px;
 `;
 
-const Logo = styled.img`
-  position: absolute;
-  top: 8px;
-  left: 8px;
-  z-index: 2;
-  width: 200px;
-  height: 120px;
-`;
-
 const Navbar = () => {
   const { i18n } = useTranslation();
   const dispatch = useDispatch();
