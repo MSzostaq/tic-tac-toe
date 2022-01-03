@@ -35,5 +35,3 @@ export const PLAYER_MOVE = "PLAYER_MOVE";
 export const END_GAME = "END_GAME";
 export const SET_PLAYER_SCORE = "SET_PLAYER_SCORE";
 export const PLAY_AGAIN = "PLAY_AGAIN";
-// TODO:
-// dispatch INIT_GAME with saved score
