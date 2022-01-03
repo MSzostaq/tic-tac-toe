@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
-import { useTranslation } from "react-i18next";
 import { getGame } from "selectors";
 import { initGame, PLAYER_MOVE } from "actions/gameActions";
 import PlayAgainPopup from "popups/PlayAgainPopup";
@@ -42,11 +41,10 @@ const NextMove = styled.p`
   color: ${({ theme }) => theme.colors.text};
   font-size: ${({ theme }) => theme.fontSize.xxl};
   font-weight: bold;
-  margin-bottom: 12px;
+  margin-bottom: 24px;
 `;
 
 const Game = ({ modeId }) => {
-  const { t } = useTranslation();
   const dispatch = useDispatch();
   const game = useSelector(getGame);
 
