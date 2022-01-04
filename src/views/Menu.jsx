@@ -47,6 +47,14 @@ const StyledNavLink = styled(NavLink)`
   height: 100%;
 `;
 
+const Version = styled.p`
+  color: ${({ theme }) => theme.colors.text};
+  font-size: ${({ theme }) => theme.fontSize.l};
+  position: fixed;
+  bottom: 12px;
+  right: 12px;
+`;
+
 const Dashboard = () => {
   const { t } = useTranslation();
 
@@ -66,6 +74,7 @@ const Dashboard = () => {
           {t("multiplayer_online")}
         </StyledNavLink>
       </Button>
+      <Version>Version: 1.0.0</Version>
     </Wrapper>
   );
 };

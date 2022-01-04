@@ -44,6 +44,14 @@ const NextMove = styled.p`
   margin-bottom: 24px;
 `;
 
+const Version = styled.p`
+  color: ${({ theme }) => theme.colors.text};
+  font-size: ${({ theme }) => theme.fontSize.l};
+  position: fixed;
+  bottom: 12px;
+  right: 12px;
+`;
+
 const Game = ({ modeId }) => {
   const dispatch = useDispatch();
   const game = useSelector(getGame);
@@ -79,6 +87,7 @@ const Game = ({ modeId }) => {
       </NextMove>
       <Board board={game.board} onCellClick={onBoardCellClick} />
       {game.winnerId !== null && <PlayAgainPopup />}
+      <Version>Version: 1.0.0</Version>
     </Wrapper>
   );
 };
