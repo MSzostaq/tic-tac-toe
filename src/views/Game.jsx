@@ -46,7 +46,7 @@ const NextMove = styled.p`
 
 const Version = styled.p`
   color: ${({ theme }) => theme.colors.text};
-  font-size: ${({ theme }) => theme.fontSize.l};
+  font-size: ${({ theme }) => theme.fontSize.m};
   position: fixed;
   bottom: 12px;
   right: 12px;
@@ -87,7 +87,7 @@ const Game = ({ modeId }) => {
       </NextMove>
       <Board board={game.board} onCellClick={onBoardCellClick} />
       {game.winnerId !== null && <PlayAgainPopup />}
-      <Version>Version: 1.0.0</Version>
+      <Version>v. 1.0.0</Version>
     </Wrapper>
   );
 };
