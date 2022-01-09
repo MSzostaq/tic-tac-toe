@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
+import { useTranslation } from "react-i18next";
 import { getGame } from "selectors";
 import { initGame, PLAYER_MOVE } from "actions/gameActions";
 import PlayAgainPopup from "popups/PlayAgainPopup";
@@ -37,11 +38,37 @@ const BackIcon = styled(Icon)`
   height: 24px;
 `;
 
-const NextMove = styled.p`
+const Players = styled.div`
+  display: flex;
+  align-items: center;
+  margin-bottom: 24px;
+`;
+
+const Move = styled.div`
+  background-color: ${({ theme }) => theme.colors.error};
+  border-radius: 4px;
+  color: ${({ theme }) => theme.colors.white};
+  font-size: ${({ theme }) => theme.fontSize.m};
+  font-weight: bold;
+  line-height: 24px;
+  padding: 0 4px;
+  visibility: ${({ visible }) => (visible ? "visible" : "hidden")};
+  height: 24px;
+`;
+
+const PlayerSymbol = styled(Icon)`
+  color: ${({ theme }) => theme.colors.text};
+  margin: 0 12px;
+  width: 32px;
+  height: 32px;
+`;
+
+const Score = styled.p`
   color: ${({ theme }) => theme.colors.text};
   font-size: ${({ theme }) => theme.fontSize.xxl};
   font-weight: bold;
-  margin-bottom: 24px;
+  line-height: 32px;
+  height: 32px;
 `;
 
 const Version = styled.p`
@@ -53,6 +80,7 @@ const Version = styled.p`
 `;
 
 const Game = ({ modeId }) => {
+  const { t } = useTranslation();
   const dispatch = useDispatch();
   const game = useSelector(getGame);
 
@@ -82,9 +110,19 @@ const Game = ({ modeId }) => {
       <BackButton to="/">
         <BackIcon icon="caretDown" />
       </BackButton>
-      <NextMove>
-        {game.players[1].score} : {game.players[2].score}
-      </NextMove>
+      <Players>
+        {game.winnerId === null && (
+          <Move visible={game.currentPlayerId === 1}>{t("move")}</Move>
+        )}
+        <PlayerSymbol icon={game.players[1].symbol}></PlayerSymbol>
+        <Score>
+          {game.players[1].score} : {game.players[2].score}
+        </Score>
+        <PlayerSymbol icon={game.players[2].symbol}></PlayerSymbol>
+        {game.winnerId === null && (
+          <Move visible={game.currentPlayerId === 2}>{t("move")}</Move>
+        )}
+      </Players>
       <Board board={game.board} onCellClick={onBoardCellClick} />
       {game.winnerId !== null && <PlayAgainPopup />}
       <Version>v. 1.0.0</Version>
