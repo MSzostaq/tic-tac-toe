@@ -31,7 +31,25 @@ export const initGame = ({ modeId = SINGLE_PLAYER, score }) => {
   };
 };
 
+export const PLAY_AGAIN = "PLAY_AGAIN";
+export const playAgain = ({ modeId, players }) => {
+  const newPlayers = {
+    1: { ...players[1], symbol: players[1].symbol === "x" ? "o" : "x" },
+    2: { ...players[2], symbol: players[2].symbol === "x" ? "o" : "x" },
+  };
+
+  return {
+    type: PLAY_AGAIN,
+    payload: {
+      modeId,
+      players: newPlayers,
+      currentPlayerId: newPlayers[1].symbol === "x" ? 1 : 2,
+      board: createBoard(),
+      moves: [],
+    },
+  };
+};
+
 export const PLAYER_MOVE = "PLAYER_MOVE";
 export const END_GAME = "END_GAME";
 export const SET_PLAYER_SCORE = "SET_PLAYER_SCORE";
-export const PLAY_AGAIN = "PLAY_AGAIN";
