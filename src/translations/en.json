@@ -9,6 +9,7 @@
   "play_again_popup": "Do you want to play again?",
   "play_again": "Play again",
   "cancel": "Back to menu",
-  "player_win": "Player",
-  "win": "won!"
+  "win_message": "Player {{playerId}} won!",
+  "draw_message": "Draw!",
+  "move": "MOVE"
 }
