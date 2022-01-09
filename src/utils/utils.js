@@ -55,7 +55,6 @@ export function isWinningMove(move, board) {
   let isCrossTwoWin = true;
   let x = GRID_SIZE - 1;
   for (let y = 0; y < GRID_SIZE; y++) {
-    console.log(`[${y}, ${x}]`);
     const cell = board[y][x];
     if (cell !== move.symbol) {
       isCrossTwoWin = false;
