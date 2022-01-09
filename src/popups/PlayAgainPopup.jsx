@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 import styled, { css } from "styled-components";
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
-import { initGame } from "actions/gameActions";
+import { playAgain } from "actions/gameActions";
 import { getGame } from "selectors";
 import Icon from "components/Icon";
 
@@ -157,9 +157,9 @@ const PlayAgainPopup = ({ onClose }) => {
 
   function onPlayAgainButtonClick() {
     dispatch(
-      initGame({
+      playAgain({
         modeId: game.modeId,
-        score: { 1: game.players[1].score, 2: game.players[2].score },
+        players: game.players,
       })
     );
   }
@@ -174,7 +174,9 @@ const PlayAgainPopup = ({ onClose }) => {
       >
         <PopupContent>
           <StyledMainText>
-            {t("player_win")} {game.winnerId} {t("win")}
+            {game.winnerId
+              ? t("win_message", { playerId: game.winnerId })
+              : t("draw_message")}
           </StyledMainText>
           <StyledText>{t("play_again_popup")}</StyledText>
           <ButtonWrapper>
