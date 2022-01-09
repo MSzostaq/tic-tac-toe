@@ -1,7 +1,25 @@
 import { put, select, takeLatest } from "redux-saga/effects";
-import { END_GAME, PLAYER_MOVE, SET_PLAYER_SCORE } from "actions/gameActions";
+import {
+  END_GAME,
+  INIT_GAME,
+  PLAYER_MOVE,
+  SET_PLAYER_SCORE,
+} from "actions/gameActions";
+import { SINGLE_PLAYER } from "constants/gameModes";
 import { getGame } from "selectors";
+import { makeMove } from "utils/ai";
 import { isWinningMove } from "utils/utils";
+
+function* onInitGame(action) {
+  const { modeId, players } = action.payload;
+  if (modeId !== SINGLE_PLAYER) {
+    return;
+  }
+  const aiPlayer = players[1].isHuman === false ? players[1] : players[2];
+  if (aiPlayer.symbol === "x") {
+    yield put(makeMove(action.payload, aiPlayer.id));
+  }
+}
 
 function* onPlayerMove(action) {
   const move = action.payload;
@@ -21,6 +39,13 @@ function* onPlayerMove(action) {
         playerId: 0, // draw
       },
     });
+  } else {
+    if (game.modeId === SINGLE_PLAYER) {
+      const player = game.players[move.playerId];
+      if (player.isHuman) {
+        yield put(makeMove(game, game.currentPlayerId));
+      }
+    }
   }
 }
 
@@ -37,6 +62,7 @@ function* onEndGame(action) {
 }
 
 export default [
+  takeLatest(INIT_GAME, onInitGame),
   takeLatest(PLAYER_MOVE, onPlayerMove),
   takeLatest(END_GAME, onEndGame),
 ];
