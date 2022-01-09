@@ -14,6 +14,13 @@ function* onPlayerMove(action) {
         playerId: move.playerId,
       },
     });
+  } else if (game.moves.length === 9) {
+    yield put({
+      type: END_GAME,
+      payload: {
+        playerId: 0, // draw
+      },
+    });
   }
 }
 
