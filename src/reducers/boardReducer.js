@@ -1,10 +1,11 @@
-import { INIT_GAME, PLAYER_MOVE } from "actions/gameActions";
+import { PLAY_AGAIN, INIT_GAME, PLAYER_MOVE } from "actions/gameActions";
 
 const initialState = [];
 
 export default function boardReducer(state = initialState, action) {
   switch (action.type) {
-    case INIT_GAME: {
+    case INIT_GAME:
+    case PLAY_AGAIN: {
       return action.payload.board;
     }
     case PLAYER_MOVE: {

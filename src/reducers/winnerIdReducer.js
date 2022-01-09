@@ -1,10 +1,11 @@
-import { END_GAME, INIT_GAME } from "actions/gameActions";
+import { END_GAME, INIT_GAME, PLAY_AGAIN } from "actions/gameActions";
 
 const initialState = null;
 
 export default function winnerIdReducer(state = initialState, action) {
   switch (action.type) {
-    case INIT_GAME: {
+    case INIT_GAME:
+    case PLAY_AGAIN: {
       return null;
     }
     case END_GAME: {
