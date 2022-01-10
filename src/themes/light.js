@@ -1,9 +1,9 @@
 export default {
   colors: {
-    background: "#f5f5f5",
+    background: "#dcdcdc",
     black: "#222222",
     blue: "#0f5298",
-    board: "#e6e6e6",
+    board: "#f0f0f0",
     error: "#ce5a5a",
     icons: "#696969",
     popup: "#f8f8f8",
