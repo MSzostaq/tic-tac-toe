@@ -12,8 +12,23 @@ const BoardWrapper = styled(motion.div)`
   grid-template-rows: 1fr 1fr 1fr;
   gap: 0.4rem;
   padding: 8px;
-  min-width: 480px;
-  min-height: 480px;
+  min-width: 360px;
+  min-height: 360px;
+
+  @media (min-width: 800px) {
+    min-width: 480px;
+    min-height: 480px;
+  }
+
+  @media (min-width: 1200px) {
+    min-width: 520px;
+    min-height: 520px;
+  }
+
+  @media (min-width: 1800px) {
+    min-width: 580px;
+    min-height: 580px;
+  }
 `;
 
 const Board = ({ board, onCellClick }) => {

@@ -54,6 +54,14 @@ const Move = styled.div`
   padding: 0 4px;
   visibility: ${({ visible }) => (visible ? "visible" : "hidden")};
   height: 24px;
+
+  @media (min-width: ) {
+    height: 28px;
+  }
+
+  @media (min-width: ) {
+    height: 32px;
+  }
 `;
 
 const PlayerSymbol = styled(Icon)`
@@ -61,6 +69,11 @@ const PlayerSymbol = styled(Icon)`
   margin: 0 12px;
   width: 32px;
   height: 32px;
+
+  @media (min-width: 1200px) {
+    width: 42px;
+    height: 42px;
+  }
 `;
 
 const Score = styled.p`
@@ -69,6 +82,12 @@ const Score = styled.p`
   font-weight: bold;
   line-height: 32px;
   height: 32px;
+
+  @media (min-width: 1200px) {
+    font-size: ${({ theme }) => theme.fontSize.xxxl};
+    line-height: 42px;
+    height: 42px;
+  }
 `;
 
 const Version = styled.p`

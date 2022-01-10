@@ -14,8 +14,18 @@ const Cell = styled.div`
 
 const StyledIcon = styled(Icon)`
   color: ${({ theme }) => theme.colors.text};
-  width: 96px;
-  height: 96px;
+  width: 90px;
+  height: 90px;
+
+  @media (min-width: 1200px) {
+    width: 96px;
+    height: 96px;
+  }
+
+  @media (min-width: 1800px) {
+    width: 104px;
+    height: 104px;
+  }
 `;
 
 const BoardCell = ({ x, y, value, onClick }) => {
