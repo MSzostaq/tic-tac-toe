@@ -21,7 +21,7 @@ const Overlay = styled.div`
 
 const Popup = styled(motion.div)`
   background-color: ${({ theme }) => theme.colors.popup};
-  box-shadow: 0px 0px 4px 0px ${({ theme }) => theme.colors.black};
+  box-shadow: 0px 0px 4px 0px ${({ theme }) => theme.colors.darkPurple};
   border-radius: 8px;
   display: flex;
   flex-direction: column;
@@ -36,8 +36,8 @@ const Popup = styled(motion.div)`
   }
 
   @media (min-width: 800px) {
-    width: 40vw;
-    height: 50vh;
+    width: 36vw;
+    height: 48vh;
   }
 `;
 
