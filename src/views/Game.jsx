@@ -45,9 +45,9 @@ const Players = styled.div`
 `;
 
 const Move = styled.div`
-  background-color: ${({ theme }) => theme.colors.error};
+  background-color: ${({ theme }) => theme.colors.move};
   border-radius: 4px;
-  color: ${({ theme }) => theme.colors.white};
+  color: ${({ theme }) => theme.colors.text};
   font-size: ${({ theme }) => theme.fontSize.m};
   font-weight: bold;
   line-height: 24px;
