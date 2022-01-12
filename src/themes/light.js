@@ -9,6 +9,7 @@ export default {
     icons: "#696969",
     move: "#00bfff",
     popup: "#f8f8f8",
+    popupButton: "#e6e6e6",
     shadow: "#acb3c0",
     succes: "#76bd70",
     text: "#434343",
