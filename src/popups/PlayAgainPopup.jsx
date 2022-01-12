@@ -36,8 +36,8 @@ const Popup = styled(motion.div)`
   }
 
   @media (min-width: 800px) {
-    width: 36vw;
-    height: 48vh;
+    width: 32vw;
+    height: 44vh;
   }
 `;
 
@@ -94,6 +94,7 @@ const ButtonWrapper = styled.div`
 `;
 
 const buttonStyle = css`
+  background-color: ${({ theme }) => theme.colors.popupButton};
   box-shadow: 0px 0px 2px 0px ${({ theme }) => theme.colors.shadow};
   border-radius: 8px;
   color: ${({ theme }) => theme.colors.text};
