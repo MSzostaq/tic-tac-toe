@@ -11,5 +11,8 @@
   "cancel": "Back to menu",
   "win_message": "Player {{playerId}} won!",
   "draw_message": "Draw!",
-  "move": "MOVE"
+  "move": "MOVE",
+  "easy": "easy",
+  "medium": "medium",
+  "hard": "hard"
 }
