@@ -36,7 +36,7 @@ const Popup = styled(motion.div)`
   }
 
   @media (min-width: 800px) {
-    width: 32vw;
+    width: 40vw;
     height: 44vh;
   }
 `;
@@ -148,8 +148,8 @@ const PlayAgainPopup = ({ onClose }) => {
   const dispatch = useDispatch();
   const game = useSelector(getGame);
 
-  function onOverlayClick() {
-    onClose();
+  function onOverlayClick(event) {
+    event.stopPropagation();
   }
 
   function onPopupClick(event) {
