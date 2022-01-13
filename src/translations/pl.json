@@ -11,5 +11,8 @@
   "cancel": "Wróć do menu",
   "win_message": "Gracz {{playerId}} wygrał!",
   "draw_message": "Remis!",
-  "move": "RUCH"
+  "move": "RUCH",
+  "easy": "łatwy",
+  "medium": "średni",
+  "hard": "trudny"
 }
