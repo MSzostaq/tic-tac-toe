@@ -103,7 +103,7 @@ const buttonStyle = css`
   justify-content: space-around;
   font-size: ${({ theme }) => theme.fontSize.m};
   font-weight: bold;
-  margin: 8px;
+  margin: 8px 12px;
   padding: 4px;
   text-align: center;
   width: 140px;
