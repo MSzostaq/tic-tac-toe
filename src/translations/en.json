@@ -12,7 +12,7 @@
   "win_message": "Player {{playerId}} won!",
   "draw_message": "Draw!",
   "move": "MOVE",
-  "easy": "easy",
-  "medium": "medium",
-  "hard": "hard"
+  "easy": "Easy",
+  "medium": "Medium",
+  "hard": "Hard"
 }

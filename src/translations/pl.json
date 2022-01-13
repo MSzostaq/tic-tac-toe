@@ -12,7 +12,7 @@
   "win_message": "Gracz {{playerId}} wygrał!",
   "draw_message": "Remis!",
   "move": "RUCH",
-  "easy": "łatwy",
-  "medium": "średni",
-  "hard": "trudny"
+  "easy": "Łatwy",
+  "medium": "Średni",
+  "hard": "Trudny"
 }
