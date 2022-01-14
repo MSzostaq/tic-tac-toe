@@ -3,6 +3,7 @@ import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import { useTranslation } from "react-i18next";
 import Icon from "components/Icon";
+import Tooltip from "components/Tooltip";
 
 const Wrapper = styled.div`
   background-color: ${({ theme }) => theme.colors.background};
@@ -69,11 +70,13 @@ const Dashboard = () => {
           {t("multiplayer_local")}
         </StyledNavLink>
       </Button>
-      <Button>
-        <StyledNavLink to="/multiplayer-online">
-          {t("multiplayer_online")}
-        </StyledNavLink>
-      </Button>
+      <Tooltip text="Soon, stay tuned!" position="right">
+        <Button>
+          <StyledNavLink to="/multiplayer-online">
+            {t("multiplayer_online")}
+          </StyledNavLink>
+        </Button>
+      </Tooltip>
       <Version>v. 1.0.0</Version>
     </Wrapper>
   );
