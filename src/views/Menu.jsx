@@ -70,7 +70,7 @@ const Dashboard = () => {
           {t("multiplayer_local")}
         </StyledNavLink>
       </Button>
-      <Tooltip text="Soon, stay tuned!" position="right">
+      <Tooltip text="Coming soon, stay tuned!" position="right">
         <Button>
           <StyledNavLink to="/multiplayer-onlinee">
             {t("multiplayer_online")}
