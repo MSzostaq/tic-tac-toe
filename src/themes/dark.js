@@ -4,6 +4,7 @@ export default {
     black: "#222222",
     blue: "#0f5298",
     board: "#565656",
+    cell: "#d4d4d4",
     error: "#ce5a5a",
     darkPurple: "#181818",
     icons: "#dcdcdc",
