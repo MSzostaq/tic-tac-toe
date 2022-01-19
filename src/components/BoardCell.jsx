@@ -1,8 +1,9 @@
 import React from "react";
 import styled from "styled-components";
+import { motion } from "framer-motion";
 import Icon from "components/Icon";
 
-const Cell = styled.div`
+const Cell = styled(motion.div)`
   background-color: ${({ theme }) => theme.colors.background};
   border: none;
   display: flex;
@@ -13,7 +14,7 @@ const Cell = styled.div`
 `;
 
 const StyledIcon = styled(Icon)`
-  color: ${({ theme }) => theme.colors.text};
+  color: ${({ theme }) => theme.colors.cell};
   width: 90px;
   height: 90px;
 
