@@ -14,5 +14,6 @@
   "move": "RUCH",
   "easy": "Łatwy",
   "medium": "Średni",
-  "hard": "Trudny"
+  "hard": "Trudny",
+  "tooltip": "Już wkrótce, cierpliwości!"
 }
