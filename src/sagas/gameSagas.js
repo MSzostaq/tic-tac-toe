@@ -3,6 +3,7 @@ import {
   END_GAME,
   INIT_GAME,
   PLAYER_MOVE,
+  PLAY_AGAIN,
   SET_PLAYER_SCORE,
 } from "actions/gameActions";
 import { SINGLE_PLAYER } from "constants/gameModes";
@@ -50,6 +51,9 @@ function* onPlayerMove(action) {
 }
 
 function* onEndGame(action) {
+  if (action.payload.playerId === 0) {
+    return;
+  }
   const game = yield select(getGame);
   const winner = game.players[action.payload.playerId];
   yield put({
@@ -61,8 +65,20 @@ function* onEndGame(action) {
   });
 }
 
+function* onPlayAgain(action) {
+  const { modeId, players } = action.payload;
+  if (modeId !== SINGLE_PLAYER) {
+    return;
+  }
+  const aiPlayer = players[1].isHuman === false ? players[1] : players[2];
+  if (aiPlayer.symbol === "x") {
+    yield put(makeMove(action.payload, aiPlayer.id));
+  }
+}
+
 export default [
   takeLatest(INIT_GAME, onInitGame),
   takeLatest(PLAYER_MOVE, onPlayerMove),
   takeLatest(END_GAME, onEndGame),
+  takeLatest(PLAY_AGAIN, onPlayAgain),
 ];
