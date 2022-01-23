@@ -3,8 +3,13 @@ import { PLAYER_MOVE } from "actions/gameActions";
 export const makeMove = (game, playerId) => {
   let x;
   let y;
-  // TODO:
-  // if (game.board) {x = 2, y = 0}
+
+  const { board } = game;
+  do {
+    x = Math.floor(Math.random() * 3);
+    y = Math.floor(Math.random() * 3);
+  } while (board[y][x] !== null);
+
   return {
     type: PLAYER_MOVE,
     payload: {
