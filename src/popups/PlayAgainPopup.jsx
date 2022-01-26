@@ -39,6 +39,16 @@ const Popup = styled(motion.div)`
     width: 40vw;
     height: 44vh;
   }
+
+  @media (min-width: 1200px) {
+    width: 32vw;
+    height: 34vh;
+  }
+
+  @media (min-width: 1600px) {
+    width: 28vw;
+    height: 32vh;
+  }
 `;
 
 const PopupContent = styled.div`
