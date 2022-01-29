@@ -1,23 +1,71 @@
-import { INIT_GAME } from "actions/gameActions";
-import { SINGLE_PLAYER } from "constants/gameModes";
+import { INIT_GAME, PLAY_AGAIN, PLAYER_MOVE } from "actions/gameActions";
 import reducer from "reducers/boardReducer";
 
 describe("board reducer", () => {
-  it("should add empty board", () => {
+  it("should return initial state", () => {
+    expect(reducer(undefined, {})).toEqual([]);
+  });
+
+  it("should create empty board on INIT_GAME", () => {
     const state = [];
     const action = {
       type: INIT_GAME,
       payload: {
-        modeId: SINGLE_PLAYER,
-        players: {
-          1: { id: 1, isHuman: true, symbol: "X", score: 0 },
-          2: { id: 2, isHuman: false, symbol: "O", score: 0 },
-        },
-        board: [[], [], []],
-        moves: [],
+        board: [
+          [null, null, null],
+          [null, null, null],
+          [null, null, null],
+        ],
       },
     };
-    const expectedState = [[], [], []];
+    const expectedState = [
+      [null, null, null],
+      [null, null, null],
+      [null, null, null],
+    ];
+    expect(reducer(state, action)).toEqual(expectedState);
+  });
+
+  it("should create empty board on PLAY_AGAIN", () => {
+    const state = [];
+    const action = {
+      type: PLAY_AGAIN,
+      payload: {
+        board: [
+          [null, null, null],
+          [null, null, null],
+          [null, null, null],
+        ],
+      },
+    };
+    const expectedState = [
+      [null, null, null],
+      [null, null, null],
+      [null, null, null],
+    ];
+    expect(reducer(state, action)).toEqual(expectedState);
+  });
+
+  it("should create empty board on PLAYER_MOVE", () => {
+    const state = [
+      [null, null, null],
+      [null, null, null],
+      [null, null, null],
+    ];
+    const action = {
+      type: PLAYER_MOVE,
+      payload: {
+        x: 0,
+        y: 0,
+        playerId: 1,
+        symbol: "x",
+      },
+    };
+    const expectedState = [
+      ["x", null, null],
+      [null, null, null],
+      [null, null, null],
+    ];
     expect(reducer(state, action)).toEqual(expectedState);
   });
 });
