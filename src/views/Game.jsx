@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
+import moment from "moment";
 import styled from "styled-components";
 import { useTranslation } from "react-i18next";
 import { getGame } from "selectors";
@@ -112,6 +113,7 @@ const Game = ({ modeId }) => {
     dispatch({
       type: PLAYER_MOVE,
       payload: {
+        date: moment().toISOString(),
         x,
         y,
         playerId: player.id,
