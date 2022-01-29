@@ -1,4 +1,3 @@
-import moment from "moment";
 import { INIT_GAME, PLAY_AGAIN, PLAYER_MOVE } from "actions/gameActions";
 
 const initialState = [];
@@ -10,9 +9,7 @@ export default function movesReducer(state = initialState, action) {
       return action.payload.moves;
     }
     case PLAYER_MOVE: {
-      const date = moment().toISOString();
-      const { playerId, x, y } = action.payload;
-      return [...state, { playerId, x, y, date }];
+      return [...state, action.payload];
     }
     default:
       return state;
