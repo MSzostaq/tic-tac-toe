@@ -1,3 +1,4 @@
+import moment from "moment";
 import { PLAYER_MOVE } from "actions/gameActions";
 
 export const makeMove = (game, playerId) => {
@@ -13,6 +14,7 @@ export const makeMove = (game, playerId) => {
   return {
     type: PLAYER_MOVE,
     payload: {
+      date: moment().toISOString(),
       x,
       y,
       playerId,
