@@ -1,13 +1,13 @@
-import { INIT_GAME } from "actions/gameActions";
-import {
-  SINGLE_PLAYER,
-  MULTI_PLAYER,
-  MULTI_PLAYER_ONLINE,
-} from "constants/gameModes";
+import { INIT_GAME, PLAY_AGAIN } from "actions/gameActions";
+import { SINGLE_PLAYER } from "constants/gameModes";
 import reducer from "reducers/modeIdReducer";
 
 describe("mode id reducer", () => {
-  it("should handle add SINGLE_PLAYER mode id to the state", () => {
+  it("should return initial state", () => {
+    expect(reducer(undefined, {})).toEqual(null);
+  });
+
+  it("should set mode id on INIT_GAME", () => {
     const state = [];
     const action = {
       type: INIT_GAME,
@@ -15,32 +15,19 @@ describe("mode id reducer", () => {
         modeId: SINGLE_PLAYER,
       },
     };
-    const expectedState = "SINGLE_PLAYER";
-
+    const expectedState = SINGLE_PLAYER;
     expect(reducer(state, action)).toEqual(expectedState);
   });
 
-  it("should handle add MULTI_PLAYER mode id to the state", () => {
+  it("should set mode id on PLAY_AGAIN", () => {
     const state = [];
     const action = {
-      type: INIT_GAME,
+      type: PLAY_AGAIN,
       payload: {
-        modeId: MULTI_PLAYER,
+        modeId: SINGLE_PLAYER,
       },
     };
-    const expectedState = "MULTI_PLAYER";
-    expect(reducer(state, action)).toEqual(expectedState);
-  });
-
-  it("should handle add MULTI_PLAYER_ONLINE mode id to the state", () => {
-    const state = [];
-    const action = {
-      type: INIT_GAME,
-      payload: {
-        modeId: MULTI_PLAYER_ONLINE,
-      },
-    };
-    const expectedState = "MULTI_PLAYER_ONLINE";
+    const expectedState = SINGLE_PLAYER;
     expect(reducer(state, action)).toEqual(expectedState);
   });
 });
