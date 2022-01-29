@@ -2,20 +2,20 @@ import { SINGLE_PLAYER } from "constants/gameModes";
 import { coinToss, createBoard } from "utils/utils";
 
 export const INIT_GAME = "INIT_GAME";
-export const initGame = ({ modeId = SINGLE_PLAYER, score }) => {
+export const initGame = ({ modeId = SINGLE_PLAYER }) => {
   const currentPlayerId = coinToss() ? 1 : 2;
   const players = {
     1: {
       id: 1,
       isHuman: true,
       symbol: currentPlayerId === 1 ? "x" : "o",
-      score: score ? score[1] : 0,
+      score: 0,
     },
     2: {
       id: 2,
       isHuman: modeId !== SINGLE_PLAYER,
       symbol: currentPlayerId === 2 ? "x" : "o",
-      score: score ? score[2] : 0,
+      score: 0,
     },
   };
 
