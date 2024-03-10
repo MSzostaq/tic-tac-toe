@@ -1,4 +1,3 @@
-## There will be the best tic-tac-toe game you have ever seen
+## Tic-tac-toe game
 
-Stay tuned
-https://ms-xoxo.herokuapp.com/#/
+Desktop game made with React and React-Redux.
